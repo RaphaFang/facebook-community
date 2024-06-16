@@ -2,10 +2,10 @@ import requests
 from requests_oauthlib import OAuth2Session
 import os 
 
-app_id = os.getenv('YOUR_APP_ID')
-app_secret = os.getenv('YOUR_APP_SECRET')
+app_id = os.getenv('YOUR_APP_ID_v1')
+app_secret = os.getenv('YOUR_APP_SECRET_v1')
 redirect_uri = 'https://localhost/'
-scope = ['public_profile', 'user_posts', 'user_videos', 'user_photos']
+scope = ['public_profile','pages_read_user_content']
 
 # 前往url授權
 oauth = OAuth2Session(app_id, redirect_uri=redirect_uri, scope=scope)
