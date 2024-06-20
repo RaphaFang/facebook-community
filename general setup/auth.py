@@ -5,7 +5,7 @@ import os
 app_id = os.getenv('YOUR_APP_ID_v1')
 app_secret = os.getenv('YOUR_APP_SECRET_v1')
 redirect_uri = 'https://localhost/'
-scope = ['public_profile','pages_read_user_content']
+scope = [ 'public_profile' ]
 
 # 前往url授權
 oauth = OAuth2Session(app_id, redirect_uri=redirect_uri, scope=scope)
@@ -29,21 +29,10 @@ params = {
 response = requests.get(url, params=params)
 data = response.json()
 
+print(data)
 
-print(f"User ID: {data['id']}")
-print(f"Name: {data['name']}")
-if 'posts' in data:
-    print("User Posts:", data['posts'])
-if 'videos' in data:
-    print("User Videos:", data['videos'])
-if 'photos' in data:
-    print("User Photos:", data['photos'])
 
-# 將資料存在 env : 
+
+
 # nano ~/.zshrc
-# export SQL_USER='當初設定的使用名稱'
-# export SQL_PASSWORD='當初設定的密碼'
-# 直接離開即可，他會詢問是否儲存？
-# 離開後，到vscode python terminal介面輸入以下：
 # source ~/.zshrc
-# 接著import os 就可以正常召喚 env
